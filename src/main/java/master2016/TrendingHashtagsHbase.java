@@ -277,8 +277,8 @@ public class TrendingHashtagsHbase {
 		String[] languages = new String[files.length];
 		for (int i = 0; i < files.length; i++) {
 			File file = files[i];
-			if (file.isFile() && file.getName().endsWith(".log")) {
-				languages[i] = file.getName().split(".log")[0];
+			if (file.isFile() && file.getName().endsWith(".out")) {
+				languages[i] = file.getName().split(".out")[0];
 				System.out.println(languages[i]);
 			}
 		}
@@ -293,7 +293,7 @@ public class TrendingHashtagsHbase {
 		for (int i = 0; i < files.length; i++) {
 			File file = files[i];
 			// read only "valid files"
-			if (file.isFile() && file.getName().endsWith(".log")) {
+			if (file.isFile() && file.getName().endsWith(".out")) {
 				try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 					for (String line; (line = br.readLine()) != null;) {
 						String[] fields = line.split(",");
